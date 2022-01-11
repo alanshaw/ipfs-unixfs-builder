@@ -14,7 +14,7 @@ const docs = new UnixFsDir('documents')
 // Only append, this is how we can keep memory usage low,
 // once flushed, we can discard all but the root CID (for files)
 // or the root CID + the entry CIDs (for directories).
-docs.append(new File())
+docs.append(new File([JSON.stringify({ hello: 'world' })], 'test.json'))
 
 // All the blocks so far...
 for await (const block of docs.flush()) {
@@ -24,9 +24,9 @@ for await (const block of docs.flush()) {
 
 const pics = new UnixFsDir('pictures')
 
-pics.append(new File())
-pics.append(new File())
-pics.append(new File())
+pics.append(new File(['😁'], 'smile.png'))
+pics.append(new File(['🤖'], 'robot.png'))
+pics.append(new File(['🚗'], 'red-car.png'))
 
 // Add the pictures directory to the documents directory!
 docs.append(pics)
