@@ -2,6 +2,8 @@ import { UnixFS } from 'ipfs-unixfs'
 import * as Block from 'multiformats/block'
 import { sha256 } from 'multiformats/hashes/sha2'
 import * as pb from '@ipld/dag-pb'
+import { File } from '@web-std/file'
+import { importer } from './importer.js'
 
 /**
  * @typedef {import('multiformats').CID} CID
@@ -55,9 +57,12 @@ export class UnixFsFile extends UnixFsEntity {
       yield { cid: this._cid }
       return
     }
-
-    // TODO: use ipfs-unixfs-importer to import the file?
-    // Need a special blockstore with a blocks iterator?
+    const blocks = importer(this._file)
+    let block
+    for await (block of blocks) {
+      yield block
+    }
+    this._cid = block.cid
   }
 }
 

@@ -17,9 +17,15 @@
   "author": "Alan Shaw",
   "license": "MIT",
   "dependencies": {
-    "@ipld/car": "^3.2.3",
     "@ipld/dag-pb": "^2.1.15",
+    "@web-std/file": "^3.0.0",
     "ipfs-unixfs": "^6.0.6",
-    "multiformats": "^9.5.8"
+    "ipfs-unixfs-importer": "^9.0.6",
+    "multiformats": "^9.5.8",
+    "p-defer": "^4.0.0",
+    "p-fifo": "^1.0.0"
+  },
+  "devDependencies": {
+    "ava": "^4.0.1"
   }
 }
