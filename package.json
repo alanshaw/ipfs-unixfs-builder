@@ -1,0 +1,25 @@
+{
+  "name": "ipfs-unixfs-builder",
+  "version": "0.0.0",
+  "description": "Build an IPFS UnixFS DAG.",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava --verbose"
+  },
+  "keywords": [
+    "DAG",
+    "UnixFS",
+    "MFS",
+    "IPFS",
+    "IPLD"
+  ],
+  "author": "Alan Shaw",
+  "license": "MIT",
+  "dependencies": {
+    "@ipld/car": "^3.2.3",
+    "@ipld/dag-pb": "^2.1.15",
+    "ipfs-unixfs": "^6.0.6",
+    "multiformats": "^9.5.8"
+  }
+}
