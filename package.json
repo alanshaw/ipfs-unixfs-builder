@@ -4,6 +4,7 @@
   "description": "Build an IPFS UnixFS DAG.",
   "type": "module",
   "main": "index.js",
+  "types": "./index.d.ts",
   "scripts": {
     "test": "ava --verbose"
   },
@@ -27,5 +28,13 @@
   },
   "devDependencies": {
     "ava": "^4.0.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alanshaw/ipfs-unixfs-builder.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alanshaw/ipfs-unixfs-builder/issues"
+  },
+  "homepage": "https://github.com/alanshaw/ipfs-unixfs-builder#readme"
 }

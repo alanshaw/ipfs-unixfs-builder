@@ -7,26 +7,19 @@ import { importer } from './importer.js'
 
 /**
  * @typedef {import('multiformats').CID} CID
- * @typedef {{ cid: CID, bytes?: Uint8Array }} Block
+ * @typedef {import('./index.d').Block} Block
  */
 
-class UnixFsEntity {
+export class UnixFsEntity {
   constructor (name, size) {
     this.name = name
     this.size = size
   }
 
-  /**
-   * Determine if this part of the tree needs to be flushed.
-   */
   dirty () {
     return false
   }
 
-  /**
-   * Return the blocks that have not yet been flushed from this DAG.
-   * @returns {AsyncIterable<Block>}
-   */
   async * flush () {}
 }
 
@@ -82,8 +75,11 @@ export class UnixFsDir extends UnixFsEntity {
     this._cid = null
   }
 
+  get entries () {
+    return Array.from(this._entries)
+  }
+
   /**
-   * Add an entry to this directory.
    * @param {File|UnixFsFile|UnixFsDir} entity
    * @returns {UnixFsDir}
    */
