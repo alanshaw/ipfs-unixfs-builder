@@ -56,6 +56,7 @@ export class UnixFsFile extends UnixFsEntity {
       yield block
     }
     this._cid = block.cid
+    this._file = null
   }
 }
 
